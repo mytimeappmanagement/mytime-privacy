@@ -1,77 +1,641 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Privacy Policy - My Time</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 800px;
-            margin: 40px auto;
-            padding: 0 20px;
-            line-height: 1.7;
-            color: #222;
+    <meta name="theme-color" content="#101510">
+    <meta name="description" content="Read the privacy policy for My Time: Tasks & Planner. Learn how information is handled when you use the app.">
+    <title>Privacy Policy — My Time</title>
+
+<style>
+    :root {
+        color-scheme: dark;
+        --bg: #0b0f0c;
+        --surface: #121914;
+        --surface-light: #18231b;
+        --green: #9cff29;
+        --green-dark: #315c46;
+        --text: #f2f6f0;
+        --muted: #a0ada1;
+        --border: rgba(156, 255, 41, 0.13);
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 24px;
+    }
+
+    body {
+        margin: 0;
+        background:
+            radial-gradient(ellipse at 50% -15%, rgba(91, 160, 55, 0.15), transparent 55%),
+            var(--bg);
+        color: var(--text);
+        font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI",
+                     Roboto, Arial, sans-serif;
+        line-height: 1.8;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+        color: var(--green);
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+
+    .topbar {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        background: rgba(11, 15, 12, 0.78);
+    }
+
+    .topbar-inner {
+        max-width: 1040px;
+        margin: auto;
+        padding: 19px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+    }
+
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--text);
+        font-size: 17px;
+        font-weight: 750;
+        letter-spacing: -0.5px;
+    }
+
+    .brand-mark {
+        width: 42px;
+        height: 42px;
+        display: grid;
+        place-items: center;
+        border-radius: 14px;
+        background: linear-gradient(145deg, #b5ff58, #72cf20);
+        color: #10170b;
+        font-size: 21px;
+        font-weight: 900;
+        box-shadow: 0 0 28px rgba(156, 255, 41, 0.12);
+    }
+
+    .brand small {
+        display: block;
+        margin-top: -2px;
+        color: var(--muted);
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.5px;
+    }
+
+    .top-label {
+        color: var(--muted);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 1.3px;
+        text-transform: uppercase;
+    }
+
+    .container {
+        max-width: 900px;
+        margin: auto;
+        padding: 66px 24px 80px;
+    }
+
+    .hero {
+        position: relative;
+        overflow: hidden;
+        padding: 45px 42px;
+        border: 1px solid var(--border);
+        border-radius: 27px;
+        background:
+            radial-gradient(ellipse at 100% 0%, rgba(156, 255, 41, 0.10), transparent 48%),
+            linear-gradient(145deg, #172119, #101611 70%);
+        box-shadow: 0 24px 80px rgba(0, 0, 0, 0.22);
+    }
+
+    .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        padding: 7px 12px;
+        border: 1px solid var(--border);
+        border-radius: 100px;
+        background: rgba(156, 255, 41, 0.05);
+        color: var(--green);
+        font-size: 11px;
+        font-weight: 750;
+        letter-spacing: 1.6px;
+        text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+        content: "";
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--green);
+        box-shadow: 0 0 10px rgba(156, 255, 41, 0.65);
+    }
+
+    h1 {
+        max-width: 650px;
+        margin: 23px 0 15px;
+        font-size: clamp(35px, 6vw, 53px);
+        line-height: 1.13;
+        letter-spacing: -2px;
+    }
+
+    h1 span {
+        color: var(--green);
+    }
+
+    .hero-description {
+        max-width: 570px;
+        margin: 0;
+        color: #aeb9af;
+        font-size: 15px;
+        line-height: 1.9;
+    }
+
+    .hero-footer {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 10px;
+        margin-top: 28px;
+    }
+
+    .date-pill,
+    .document-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 9px 13px;
+        border: 1px solid rgba(255, 255, 255, 0.07);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.035);
+        color: #c5cec5;
+        font-size: 12px;
+    }
+
+    .date-pill strong {
+        color: var(--text);
+        font-weight: 650;
+    }
+
+    .layout {
+        display: grid;
+        grid-template-columns: 215px minmax(0, 1fr);
+        align-items: start;
+        gap: 24px;
+        margin-top: 30px;
+    }
+
+    .toc {
+        position: sticky;
+        top: 24px;
+        padding: 21px 15px;
+        border: 1px solid rgba(255, 255, 255, 0.065);
+        border-radius: 18px;
+        background: rgba(18, 25, 20, 0.85);
+    }
+
+    .toc-title {
+        margin: 0 10px 12px;
+        color: var(--muted);
+        font-size: 10px;
+        font-weight: 800;
+        letter-spacing: 1.6px;
+        text-transform: uppercase;
+    }
+
+    .toc a {
+        display: block;
+        padding: 8px 10px;
+        border-radius: 8px;
+        color: #b8c3b9;
+        font-size: 12px;
+        line-height: 1.5;
+        transition: background 0.2s, color 0.2s;
+    }
+
+    .toc a:hover {
+        background: rgba(156, 255, 41, 0.07);
+        color: var(--green);
+        text-decoration: none;
+    }
+
+    .policy {
+        min-width: 0;
+    }
+
+    .section {
+        margin-bottom: 15px;
+        padding: 26px 27px;
+        border: 1px solid rgba(255, 255, 255, 0.065);
+        border-radius: 17px;
+        background: linear-gradient(145deg, rgba(20, 28, 22, 0.96), rgba(16, 22, 18, 0.96));
+        scroll-margin-top: 20px;
+    }
+
+    .section h2 {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 0 0 15px;
+        font-size: 17px;
+        font-weight: 750;
+        letter-spacing: -0.3px;
+        line-height: 1.5;
+    }
+
+    .number {
+        flex-shrink: 0;
+        display: grid;
+        width: 31px;
+        height: 31px;
+        place-items: center;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        background: rgba(156, 255, 41, 0.06);
+        color: var(--green);
+        font-size: 11px;
+        font-weight: 800;
+    }
+
+    .section p {
+        margin: 0 0 13px;
+        color: #b3beb4;
+        font-size: 13px;
+    }
+
+    .section p:last-child {
+        margin-bottom: 0;
+    }
+
+    .section ul {
+        display: grid;
+        gap: 10px;
+        margin: 14px 0;
+        padding-left: 19px;
+        color: #b3beb4;
+        font-size: 13px;
+    }
+
+    .section li {
+        padding-left: 3px;
+    }
+
+    .section li::marker {
+        color: var(--green);
+    }
+
+    .section strong {
+        color: #edf3ec;
+        font-weight: 650;
+    }
+
+    .contact-card {
+        padding: 23px;
+        border: 1px solid rgba(156, 255, 41, 0.2);
+        border-radius: 14px;
+        background: rgba(156, 255, 41, 0.045);
+    }
+
+    .contact-card p {
+        margin-bottom: 7px;
+    }
+
+    .contact-card p:last-child {
+        margin-bottom: 0;
+    }
+
+    .footer {
+        margin-top: 37px;
+        padding-top: 24px;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+        text-align: center;
+    }
+
+    .footer-brand {
+        color: var(--text);
+        font-size: 14px;
+        font-weight: 750;
+        letter-spacing: -0.3px;
+    }
+
+    .footer-brand span {
+        color: var(--green);
+    }
+
+    .footer p {
+        margin: 8px 0 0;
+        color: #778379;
+        font-size: 11px;
+    }
+
+    @media (max-width: 680px) {
+        .topbar-inner {
+            padding: 15px 19px;
         }
-        h1, h2 { color: #315c46; }
-    </style>
+
+        .top-label {
+            font-size: 9px;
+            letter-spacing: 0.8px;
+        }
+
+        .brand-mark {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+        }
+
+        .container {
+            padding: 32px 15px 48px;
+        }
+
+        .hero {
+            padding: 29px 23px;
+            border-radius: 21px;
+        }
+
+        h1 {
+            font-size: 37px;
+            letter-spacing: -1.5px;
+        }
+
+        .hero-description {
+            font-size: 14px;
+        }
+
+        .layout {
+            grid-template-columns: 1fr;
+            gap: 17px;
+            margin-top: 20px;
+        }
+
+        .toc {
+            position: static;
+            padding: 16px;
+        }
+
+        .toc-links {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 3px;
+        }
+
+        .toc a {
+            padding: 8px;
+            font-size: 11px;
+        }
+
+        .section {
+            padding: 22px 19px;
+            border-radius: 15px;
+        }
+
+        .section h2 {
+            font-size: 16px;
+        }
+
+        .section p,
+        .section ul {
+            font-size: 13px;
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        html {
+            scroll-behavior: auto;
+        }
+
+        * {
+            transition: none !important;
+        }
+    }
+</style>
+```
+
 </head>
+
 <body>
-    <h1>Privacy Policy for My Time: Tasks &amp; Planner</h1>
-    <p><strong>Effective Date:</strong> October 20, 2026</p>
-    <p><strong>Package Name:</strong> com.mytime.planner</p>
+    <header class="topbar">
+        <div class="topbar-inner">
+            <div class="brand">
+                <div class="brand-mark" aria-hidden="true">M</div>
+                <div>
+                    My Time
+                    <small>YOUR TIME. YOUR PLAN.</small>
+                </div>
+            </div>
+            <div class="top-label">Legal &amp; Privacy</div>
+        </div>
+    </header>
 
-    <h2>1. Introduction</h2>
-    <p>My Time: Tasks &amp; Planner ("My Time", "we", "our", or "us") is a productivity application designed to help users organize tasks, manage schedules, set reminders, and track their activities.</p>
-    <p>This Privacy Policy explains how information may be collected, used, stored, and shared when you use the application.</p>
+```
+<main class="container">
+    <section class="hero">
+        <div class="eyebrow">Your privacy matters</div>
 
-    <h2>2. Information We Handle</h2>
-    <p>Depending on the features you use, My Time may handle:</p>
-    <ul>
-        <li><strong>Task and Schedule Data:</strong> Task titles, descriptions, deadlines, priorities, schedules, and reminder settings.</li>
-        <li><strong>App Preferences:</strong> Settings such as language, theme, and notification preferences.</li>
-        <li><strong>Device Permissions:</strong> Notification and alarm-related permissions needed for reminders.</li>
-        <li><strong>Optional Features:</strong> Content you submit to optional features, such as AI-powered tools, may be processed to provide the requested functionality.</li>
-    </ul>
-    <p>The information handled depends on the features available in the version of the application you use.</p>
+        <h1>Privacy, made <span>clear.</span></h1>
 
-    <h2>3. How Information Is Used</h2>
-    <ul>
-        <li>Create, organize, edit, and manage tasks.</li>
-        <li>Schedule and deliver reminders and notifications.</li>
-        <li>Save application preferences.</li>
-        <li>Display productivity summaries and weekly or monthly recaps.</li>
-        <li>Provide features you choose to use.</li>
-        <li>Maintain and troubleshoot the application.</li>
-    </ul>
+        <p class="hero-description">
+            Your time is personal. So is your information.
+            Here's how My Time: Tasks &amp; Planner handles information
+            when you use the app.
+        </p>
 
-    <h2>4. Data Storage and Third-Party Services</h2>
-    <p>Task information and preferences may be stored locally on your device. Some features may require information to be processed by external service providers. For example, content submitted to an AI-powered feature may be sent to the relevant AI provider to generate a response.</p>
-    <p>External providers may handle information according to their own privacy policies and terms. Relevant third-party services should be identified in this policy.</p>
+        <div class="hero-footer">
+            <div class="date-pill">
+                Last updated: <strong>October 20, 2026</strong>
+            </div>
+            <div class="document-pill">Privacy Policy</div>
+        </div>
+    </section>
 
-    <h2>5. Data Sharing</h2>
-    <p>We do not sell your personal information. Information may be shared with service providers when necessary to provide features you choose to use, comply with legal obligations, or protect the application's security.</p>
+    <div class="layout">
+        <nav class="toc" aria-label="Privacy policy contents">
+            <p class="toc-title">On this page</p>
+            <div class="toc-links">
+                <a href="#introduction">Introduction</a>
+                <a href="#information">Information we handle</a>
+                <a href="#usage">How information is used</a>
+                <a href="#storage">Storage &amp; services</a>
+                <a href="#sharing">Data sharing</a>
+                <a href="#retention">Retention &amp; deletion</a>
+                <a href="#security">Security</a>
+                <a href="#children">Children's privacy</a>
+                <a href="#third-party">Third-party services</a>
+                <a href="#changes">Policy changes</a>
+                <a href="#contact">Contact us</a>
+            </div>
+        </nav>
 
-    <h2>6. Data Retention and Deletion</h2>
-    <p>Information stored locally may remain on your device until you delete it, clear the application's data, or uninstall the application. Information handled by third-party providers may be subject to their retention and deletion practices.</p>
-    <p>For privacy-related requests, contact us using the details below.</p>
+        <div class="policy">
+            <section class="section" id="introduction">
+                <h2><span class="number">01</span> Introduction</h2>
+                <p>
+                    My Time: Tasks &amp; Planner ("My Time", "we", "our",
+                    or "us") is a productivity application designed to
+                    help users organize tasks, manage schedules, set
+                    reminders, and track their activities.
+                </p>
+                <p>
+                    This Privacy Policy explains how information may be
+                    collected, used, stored, and shared when you use
+                    the application.
+                </p>
+            </section>
 
-    <h2>7. Security</h2>
-    <p>We take reasonable measures to protect information handled by the application. However, no method of electronic storage or transmission can be guaranteed to be completely secure.</p>
+            <section class="section" id="information">
+                <h2><span class="number">02</span> Information We Handle</h2>
+                <p>Depending on the features you use, My Time may handle:</p>
+                <ul>
+                    <li><strong>Task and Schedule Data:</strong> Task titles, descriptions, deadlines, priorities, schedules, and reminder settings.</li>
+                    <li><strong>App Preferences:</strong> Settings such as language, theme, and notification preferences.</li>
+                    <li><strong>Device Permissions:</strong> Notification and alarm-related permissions needed for reminders.</li>
+                    <li><strong>Optional Features:</strong> Content you submit to optional features, such as AI-powered tools, may be processed to provide the requested functionality.</li>
+                </ul>
+                <p>
+                    The information handled depends on the features
+                    available in the version of the application you use.
+                </p>
+            </section>
 
-    <h2>8. Children's Privacy</h2>
-    <p>My Time's intended audience and handling of children's information are subject to its Google Play target-audience settings and applicable privacy laws. We do not knowingly collect children's personal information in violation of applicable laws.</p>
+            <section class="section" id="usage">
+                <h2><span class="number">03</span> How Information Is Used</h2>
+                <p>Information may be used to:</p>
+                <ul>
+                    <li>Create, organize, edit, and manage tasks.</li>
+                    <li>Schedule and deliver reminders and notifications.</li>
+                    <li>Save application preferences.</li>
+                    <li>Display productivity summaries and weekly or monthly recaps.</li>
+                    <li>Provide features you choose to use.</li>
+                    <li>Maintain and troubleshoot the application.</li>
+                </ul>
+            </section>
 
-    <h2>9. Third-Party Services</h2>
-    <p>The application may rely on third-party services for certain features. This policy should be updated to identify the services actually integrated into the application and explain their relevant data practices.</p>
+            <section class="section" id="storage">
+                <h2><span class="number">04</span> Data Storage &amp; Third-Party Services</h2>
+                <p>
+                    Task information and preferences may be stored locally
+                    on your device. Some features may require information
+                    to be processed by external service providers. For
+                    example, content submitted to an AI-powered feature
+                    may be sent to the relevant AI provider to generate
+                    a response.
+                </p>
+                <p>
+                    External providers may handle information according
+                    to their own privacy policies and terms. Relevant
+                    third-party services should be identified in this policy.
+                </p>
+            </section>
 
-    <h2>10. Changes to This Policy</h2>
-    <p>We may update this Privacy Policy when the application's features or data practices change. The latest version will be published at this URL.</p>
+            <section class="section" id="sharing">
+                <h2><span class="number">05</span> Data Sharing</h2>
+                <p>
+                    We do not sell your personal information. Information
+                    may be shared with service providers when necessary
+                    to provide features you choose to use, comply with
+                    legal obligations, or protect the application's security.
+                </p>
+            </section>
 
-    <h2>11. Contact Us</h2>
-    <p>For questions about this Privacy Policy or privacy-related requests, contact:</p>
-    <p><strong>App:</strong> My Time: Tasks &amp; Planner</p>
-    <p><strong>Developer:</strong> My Time</p>
-    <p><strong>Email:</strong> mytime.appmanagement@gmail.com</p>
+            <section class="section" id="retention">
+                <h2><span class="number">06</span> Data Retention &amp; Deletion</h2>
+                <p>
+                    Information stored locally may remain on your device
+                    until you delete it, clear the application's data, or
+                    uninstall the application. Information handled by
+                    third-party providers may be subject to their retention
+                    and deletion practices.
+                </p>
+                <p>
+                    For privacy-related requests, contact us using the
+                    details below.
+                </p>
+            </section>
+
+            <section class="section" id="security">
+                <h2><span class="number">07</span> Security</h2>
+                <p>
+                    We take reasonable measures to protect information
+                    handled by the application. However, no method of
+                    electronic storage or transmission can be guaranteed
+                    to be completely secure.
+                </p>
+            </section>
+
+            <section class="section" id="children">
+                <h2><span class="number">08</span> Children's Privacy</h2>
+                <p>
+                    My Time's intended audience and handling of children's
+                    information are subject to its Google Play target-audience
+                    settings and applicable privacy laws. We do not knowingly
+                    collect children's personal information in violation of
+                    applicable laws.
+                </p>
+            </section>
+
+            <section class="section" id="third-party">
+                <h2><span class="number">09</span> Third-Party Services</h2>
+                <p>
+                    The application may rely on third-party services for
+                    certain features. This policy should identify the
+                    services actually integrated into the application and
+                    explain their relevant data practices.
+                </p>
+            </section>
+
+            <section class="section" id="changes">
+                <h2><span class="number">10</span> Changes to This Policy</h2>
+                <p>
+                    We may update this Privacy Policy when the application's
+                    features or data practices change. The latest version
+                    will be published at this URL.
+                </p>
+            </section>
+
+            <section class="section" id="contact">
+                <h2><span class="number">11</span> Contact Us</h2>
+                <p>
+                    Have a question about privacy or how My Time handles
+                    information? Contact us using the details below.
+                </p>
+
+                <div class="contact-card">
+                    <p><strong>App:</strong> My Time: Tasks &amp; Planner</p>
+                    <p><strong>Developer:</strong> My Time</p>
+                    <p>
+                        <strong>Email:</strong>
+                        <a href="mailto:mytime.appmanagement@gmail.com">
+                            mytime.appmanagement@gmail.com
+                        </a>
+                    </p>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-brand">My <span>Time</span> — وقتي</div>
+        <p>Make time for what matters.</p>
+        <p>&copy; 2026 My Time. All rights reserved.</p>
+    </footer>
+</main>
+
 </body>
 </html>
